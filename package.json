@@ -1,5 +1,5 @@
 {
-  "name": "01-hello-world",
+  "name": "popular-github",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +9,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "styled-components": "^5.3.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -35,13 +36,11 @@
       "last 1 safari version"
     ]
   },
-
   "prettier": {
     "singleQuote": true,
     "semi": true,
     "trailingComma": "es5"
   },
-
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",

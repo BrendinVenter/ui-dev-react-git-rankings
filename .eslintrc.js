@@ -15,8 +15,31 @@ module.exports = {
   rules: {
     'prettier/prettier': ['warn', { singleQuote: true }],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+
+    indent: [
+      'error',
+      2,
+      {
+        ignoredNodes: [
+          'JSXElement',
+          'JSXElement > *',
+          'JSXAttribute',
+          'JSXIdentifier',
+          'JSXNamespacedName',
+          'JSXMemberExpression',
+          'JSXSpreadAttribute',
+          'JSXExpressionContainer',
+          'JSXOpeningElement',
+          'JSXClosingElement',
+          'JSXText',
+          'JSXEmptyExpression',
+          'JSXSpreadChild',
+        ],
+      },
+    ],
     'comma-dangle': 0,
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 'off',
+    'linebreak-style': 0,
   },
 };
