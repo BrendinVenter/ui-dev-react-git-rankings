@@ -1,45 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LanguagesNav from './ui/LanguagesNav';
+
+// Data
+const languageData = [
+  { id: Math.random().toString(), name: 'All' },
+  { id: Math.random().toString(), name: 'JavaScript' },
+  { id: Math.random().toString(), name: 'HTML' },
+  { id: Math.random().toString(), name: 'CSS' },
+  { id: Math.random().toString(), name: 'Ruby' },
+  { id: Math.random().toString(), name: 'Python' },
+  { id: Math.random().toString(), name: 'PHP' },
+];
 
 // markup
 const Popular = () => {
-  const languages = [
-    {
-      id: Math.random().toString(),
-      name: 'All',
-    },
-    {
-      id: Math.random().toString(),
-      name: 'JavaScript',
-    },
-    {
-      id: Math.random().toString(),
-      name: 'Ruby',
-    },
-    {
-      id: Math.random().toString(),
-      name: 'Java',
-    },
-    {
-      id: Math.random().toString(),
-      name: 'CSS',
-    },
-    {
-      id: Math.random().toString(),
-      name: 'Python',
-    },
-    {
-      id: Math.random().toString(),
-      name: 'PHP',
-    },
-  ];
+  // State
+  // eslint-disable-next-line no-unused-vars
+  const [languages, setLanguages] = useState(languageData);
+  // eslint-disable-next-line no-unused-vars
+  const [selectedLanguage, setSelectedLanguage] = useState('All');
+
+  // Functions
+  const updateSelectedLanguage = (e) => {
+    setSelectedLanguage(e.target.textContent);
+  };
 
   return (
-    <ul>
-      {languages.map((language) => (
-        <li key={language.id}>{language.name}</li>
-      ))}
-    </ul>
+    <>
+      <LanguagesNav
+        languages={languages}
+        handleClick={updateSelectedLanguage}
+      />
+    </>
   );
 };
-
 export default Popular;

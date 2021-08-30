@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './common/Button';
 
 // markup
 const Example = () => (
@@ -14,6 +15,28 @@ const Example = () => (
     <a href="https://reactjs.org/docs/getting-started.html">Learn More</a>
     <div className="example-div">
       <div className="example-inner-div" />
+    </div>
+    <div>
+      <Button>Primary</Button>
+    </div>
+    <div>
+      <Button solid>Secondary</Button>
+    </div>
+    <div>
+      <form action="">
+        <label htmlFor="example">
+          Name:
+          <input type="text" id="example" />
+        </label>
+        <label htmlFor="email">
+          Email:
+          <input type="email" id="email" />
+        </label>
+        <label htmlFor="Mobile">
+          Mobile:
+          <input type="tel" id="Mobile" />
+        </label>
+      </form>
     </div>
   </>
 );

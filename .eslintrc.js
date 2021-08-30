@@ -41,5 +41,8 @@ module.exports = {
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 'off',
     'linebreak-style': 0,
+    'implicit-arrow-linebreak': 'off',
+    'operator-linebreak': 'off',
+    'import/prefer-default-export': 'off',
   },
 };
