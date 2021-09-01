@@ -10,47 +10,62 @@ const StyledWrapper = styled.div`
 const StyledList = styled.ul`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 
   // Reset base styles
   margin: 0;
   list-style: none;
+
+  border-bottom: 1px solid var(--text-color);
 `;
 
 const StyledItem = styled.li`
   margin: 0;
+
+  width: 100%;
 `;
 
 const StyledButton = styled(Button)`
   // Resets
   border: none;
+  width: 100%;
   margin: 0;
   border-radius: 0;
 
   // Extensions
-  border-bottom: 1px solid var(--text-color);
+  //border-bottom: 1px solid var(--text-color);
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
 `;
 
 // markup
-const LanguagesNav = ({ languages, handleClick }) => (
-  <StyledWrapper>
-    <StyledList>
-      {languages.map((language) => (
-        <StyledItem key={language.id}>
-          <StyledButton type="button" onClick={handleClick}>
-            {language.name}
-          </StyledButton>
-        </StyledItem>
-      ))}
-    </StyledList>
-  </StyledWrapper>
-);
+const LanguagesNav = ({ handleClick }) => {
+  const languages = [
+    'All',
+    'JavaScript',
+    'HTML',
+    'CSS',
+    'Ruby',
+    'Python',
+    'PHP',
+  ];
+  return (
+    <StyledWrapper>
+      <StyledList>
+        {languages.map((language) => (
+          <StyledItem key={language}>
+            <StyledButton type="button" onClick={() => handleClick(language)}>
+              {language}
+            </StyledButton>
+          </StyledItem>
+        ))}
+      </StyledList>
+    </StyledWrapper>
+  );
+};
 
 LanguagesNav.propTypes = {
-  languages: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleClick: PropTypes.func.isRequired,
 };
 

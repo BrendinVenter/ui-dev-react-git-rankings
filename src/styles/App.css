@@ -1,11 +1,9 @@
 .App {
   max-width: 1280px;
-  width: 90%;
+  width: 80vw;
   margin: 0 auto;
   padding: 1em 2em;
   border-radius: 1em;
   background-color: var(--app-background-color);
-
-
 
 }
