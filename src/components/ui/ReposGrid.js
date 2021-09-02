@@ -21,6 +21,11 @@ const StyledCard = styled.div`
   border-radius: 0.5em;
 
   color: var(--app-background-color);
+
+  a {
+    text-decoration: none;
+    color: var(--app-background-color);
+  }
 `;
 
 const StyledList = styled.ul`
@@ -53,7 +58,7 @@ const StyledImage = styled.img`
 const StyledDataList = styled.ul`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   list-style: none;
   text-align: left;
@@ -65,6 +70,12 @@ const StyledDataListItem = styled.li`
 
   svg {
     margin-right: 1em;
+    color: var(--app-background-color);
+  }
+
+  a {
+    color: var(--app-background-color);
+    text-decoration: none;
   }
 `;
 
@@ -72,44 +83,45 @@ const StyledDataListItem = styled.li`
 const ReposGrid = ({ repos }) => (
   <>
     <StyledList>
-      {repos.map((item) => (
+      {repos.map((item, index) => (
         <StyledListItem>
           <StyledCard>
             <div>
-              <span>#1</span>
+              <span>{`#${index + 1}`}</span>
               <StyledImage
                 src={item.owner.avatar_url}
                 alt={`${item.name} logo`}
               />
-              <h5>{item.name}</h5>
+              <a href={item.html_url} target="_blank" rel="noreferrer">
+                <h5>{item.owner.login}</h5>
+              </a>
             </div>
             <StyledDataList>
               <StyledDataListItem>
                 <FaUser />
-                {item.language}
+                <a href={item.html_url} target="_blank" rel="noreferrer">
+                  {item.owner.login}
+                </a>
               </StyledDataListItem>
               <StyledDataListItem>
                 <FaStar />
-                {item.stargazers_count}
+                {`${item.stargazers_count} stars`}
               </StyledDataListItem>
               <StyledDataListItem>
                 <FaCodeBranch />
-                {item.forks_count}
+                {`${item.forks_count} forks`}
               </StyledDataListItem>
               <StyledDataListItem>
                 <FaExclamationTriangle />
-                {item.open_issues_count}
+                {`${item.open_issues_count} issues`}
               </StyledDataListItem>
             </StyledDataList>
           </StyledCard>
         </StyledListItem>
       ))}
     </StyledList>
-    {/* <pre>{JSON.stringify(repos, null, 2)}</pre> */}
   </>
 );
-
-// TODO: Add PropTypes
 
 ReposGrid.propTypes = {
   repos: PropTypes.arrayOf(PropTypes.object).isRequired,
